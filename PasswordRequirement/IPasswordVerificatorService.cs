@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 
-namespace PasswordRequirement
+namespace PasswordRequirement;
+
+public interface IPasswordVerificator
 {
-    public interface IPasswordVerificator
-    {
-        List<string> Verify(string password);
-    }
+    List<string> Verify(string password);
 }
