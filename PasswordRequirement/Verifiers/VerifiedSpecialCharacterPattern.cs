@@ -16,9 +16,9 @@ public class VerifiedSpecialCharacterPattern : PasswordVerifier
     }
         
     private readonly Regex _pattern = new Regex(@"[\[\]~!@#$%^&*\-+_=?><]");
-    public override string? Verified(string password, params object[] parameters)
+    public override string? Verified(UserData userData, params object[] parameters)
     {
-        if (_pattern.Matches(password).Count > 0)
+        if (_pattern.Matches(userData.Password).Count > 0)
         {
             return null;
         }

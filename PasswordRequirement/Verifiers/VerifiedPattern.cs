@@ -25,9 +25,9 @@ public class VerifiedPattern : PasswordVerifier
         ErrorMessage = errorMessage;
     }
         
-    public override string? Verified(string password, params object[] parameters)
+    public override string? Verified(UserData userData, params object[] parameters)
     {
-        if (_pattern.IsMatch(password)) return null;
+        if (_pattern.IsMatch(userData.Password)) return null;
         return string.Format(ErrorMessage, _pattern.ToString());
     }
     private readonly Regex _pattern = new Regex(@"[A-Za-z0-1\[\]~!@#$%^&*\-+_=?><]");

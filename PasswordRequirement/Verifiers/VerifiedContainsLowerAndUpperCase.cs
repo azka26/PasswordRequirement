@@ -3,10 +3,10 @@ using System.Text.RegularExpressions;
 namespace PasswordRequirement.Verifiers;
 public class VerifiedContainsLowerAndUpperCase : PasswordVerifier
 {
-    public override string? Verified(string password, params object[] parameters)
+    public override string? Verified(UserData userData, params object[] parameters)
     {
         var regex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z]).+$");
-        if (regex.IsMatch(password)) return null;
+        if (regex.IsMatch(userData.Password)) return null;
         return string.Format(ErrorMessage);
     }
 

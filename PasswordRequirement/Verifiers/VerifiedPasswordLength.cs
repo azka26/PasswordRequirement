@@ -19,9 +19,9 @@ public class VerifiedPasswordLength : PasswordVerifier
         ErrorMessage = errorMessage;
     }
         
-    public override string? Verified(string password, params object[] parameters)
+    public override string? Verified(UserData userData, params object[] parameters)
     {
-        if (string.IsNullOrEmpty(password) || password.Length < _minLength)
+        if (string.IsNullOrEmpty(userData.Password) || userData.Password.Length < _minLength)
         {
             return string.Format(ErrorMessage, _minLength.ToString());
         }

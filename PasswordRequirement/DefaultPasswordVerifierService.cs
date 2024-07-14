@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using PasswordRequirement.Verifiers;
 
 namespace PasswordRequirement;
@@ -11,7 +13,7 @@ public class DefaultPasswordVerifierService : IPasswordVerifierService
     /// </summary>
     /// <param name="password"></param>
     /// <returns></returns>
-    public List<string> Verify(string password)
+    public async Task<List<string>> VerifyAsync(UserData userData, CancellationToken cancellationToken = default)
     {
         var verificators = new List<PasswordVerifier>();
         var assembly = this.GetType().Assembly;
@@ -27,7 +29,7 @@ public class DefaultPasswordVerifierService : IPasswordVerifierService
         var errorList = new List<string>();
         foreach (var verificator in verificators)
         {
-            var result = verificator.Verified(password);
+            var result = verificator.Verified(userData);
             if (string.IsNullOrEmpty(result)) continue;
             errorList.Add(result);
         }

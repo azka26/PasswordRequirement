@@ -3,10 +3,10 @@ using System.Text.RegularExpressions;
 namespace PasswordRequirement.Verifiers;
 public class VerifiedContainsLetterAndNumber : PasswordVerifier
 {
-    public override string? Verified(string password, params object[] parameters)
+    public override string? Verified(UserData userData, params object[] parameters)
     {
         var regex = new Regex(@"^(?=.*[a-zA-Z])(?=.*[0-9]).+$");
-        if (regex.IsMatch(password)) return null;
+        if (regex.IsMatch(userData.Password)) return null;
         return string.Format(ErrorMessage);
     }
 

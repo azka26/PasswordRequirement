@@ -21,10 +21,10 @@ public class PasswordTest
     }
 
     [Test]
-    public void Invalid_Test()
+    public async Task Invalid_Test()
     {
         var verificator = new DefaultPasswordVerifierService();
-        var result = verificator.Verify("error");
+        var result = await verificator.VerifyAsync(new UserData("error"));
         result.Should().Contain(ErrorList.CombinationLetterAndNumber);
         result.Should().Contain(ErrorList.CombinationLowerAndUpper);
         result.Should().Contain(ErrorList.PasswordLength);
@@ -32,50 +32,50 @@ public class PasswordTest
     }
     
     [Test]
-    public void ValidCombinationLetterAndNumber_Test()
+    public async Task ValidCombinationLetterAndNumber_Test()
     {
         var verificator = new DefaultPasswordVerifierService();
-        var result = verificator.Verify("error1");
+        var result = await verificator.VerifyAsync(new UserData("error1"));
         result.Should().Contain(ErrorList.CombinationLowerAndUpper);
         result.Should().Contain(ErrorList.PasswordLength);
         result.Should().Contain(ErrorList.SpecialCharacter);
     }
     
     [Test]
-    public void ValidCombinationLowerAndUpper_Test()
+    public async Task ValidCombinationLowerAndUpper_Test()
     {
         var verificator = new DefaultPasswordVerifierService();
-        var result = verificator.Verify("errorE");
+        var result = await verificator.VerifyAsync(new UserData("errorE"));
         result.Should().Contain(ErrorList.CombinationLetterAndNumber);
         result.Should().Contain(ErrorList.PasswordLength);
         result.Should().Contain(ErrorList.SpecialCharacter);
     }
     
     [Test]
-    public void ValidLength_Test()
+    public async Task ValidLength_Test()
     {
         var verificator = new DefaultPasswordVerifierService();
-        var result = verificator.Verify("abcdefgh");
+        var result = await verificator.VerifyAsync(new UserData("abcdefgh"));
         result.Should().Contain(ErrorList.CombinationLetterAndNumber);
         result.Should().Contain(ErrorList.CombinationLowerAndUpper);
         result.Should().Contain(ErrorList.SpecialCharacter);
     }
     
     [Test]
-    public void ValidSpecialCharacter_Test()
+    public async Task ValidSpecialCharacter_Test()
     {
         var verificator = new DefaultPasswordVerifierService();
-        var result = verificator.Verify("@bcd");
+        var result = await verificator.VerifyAsync(new UserData("@bcd"));
         result.Should().Contain(ErrorList.CombinationLetterAndNumber);
         result.Should().Contain(ErrorList.CombinationLowerAndUpper);
         result.Should().Contain(ErrorList.PasswordLength);
     }
     
     [Test]
-    public void Valid_Test()
+    public async Task Valid_Test()
     {
         var verificator = new DefaultPasswordVerifierService();
-        var result = verificator.Verify("MyPassword@123");
+        var result = await verificator.VerifyAsync(new UserData("MyPassword@123"));
         result.Should().HaveCount(0);
     }
 }

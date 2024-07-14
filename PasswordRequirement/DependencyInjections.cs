@@ -1,4 +1,4 @@
-#if NETCOREAPP3_1_OR_GREATER
+#if NET48 || NETCOREAPP3_1_OR_GREATER
 
 using Microsoft.Extensions.DependencyInjection;
 

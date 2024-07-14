@@ -10,6 +10,6 @@ public abstract class PasswordVerifier
     /// <param name="password"></param>
     /// <param name="parameters"></param>
     /// <returns></returns>
-    public abstract string? Verified(string password, params object[] parameters);
+    public abstract string? Verified(UserData userData, params object[] parameters);
     protected abstract string ErrorMessage { get; }
 }
