@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace PasswordRequirement.Verificators;
+namespace PasswordRequirement.Verifiers;
     
 public class VerifiedPattern : PasswordVerifier
 {

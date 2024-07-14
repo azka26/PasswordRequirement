@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace PasswordRequirement.Verificators;
+namespace PasswordRequirement.Verifiers;
 
 public class VerifiedSpecialCharacterPattern : PasswordVerifier
 {

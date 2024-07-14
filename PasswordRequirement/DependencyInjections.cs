@@ -1,4 +1,5 @@
-#if NETFRAMEWORK
+#if NETCOREAPP3_1_OR_GREATER
+
 using Microsoft.Extensions.DependencyInjection;
 
 namespace PasswordRequirement;
@@ -10,6 +11,5 @@ public static class DependencyInjections
         services.AddTransient<IPasswordVerifierService, T>();
     }
 }
+
 #endif
-
-

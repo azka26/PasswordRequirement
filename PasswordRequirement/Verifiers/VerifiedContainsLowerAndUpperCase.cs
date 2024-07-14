@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace PasswordRequirement.Verificators;
+namespace PasswordRequirement.Verifiers;
 public class VerifiedContainsLowerAndUpperCase : PasswordVerifier
 {
     public override string? Verified(string password, params object[] parameters)

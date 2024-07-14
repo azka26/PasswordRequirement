@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
-using PasswordRequirement.Verificators;
+using PasswordRequirement.Verifiers;
 
 namespace PasswordRequirement;
 
 public class DefaultPasswordVerifierService : IPasswordVerifierService
 {
+    /// <summary>
+    /// Verifier Password By Combination Rules, if not valid will return list error
+    /// </summary>
+    /// <param name="password"></param>
+    /// <returns></returns>
     public List<string> Verify(string password)
     {
         var verificators = new List<PasswordVerifier>();
