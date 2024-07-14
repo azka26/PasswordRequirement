@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace PasswordRequirement;
 
-public interface IPasswordVerificator
+public interface IPasswordVerifierService
 {
     List<string> Verify(string password);
 }

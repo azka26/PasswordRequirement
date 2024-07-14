@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
 
 namespace PasswordRequirement.Verificators;
-public class VerifiedContainsLetterAndNumber : Verificator
+public class VerifiedContainsLetterAndNumber : PasswordVerifier
 {
     public override string? Verified(string password, params object[] parameters)
     {

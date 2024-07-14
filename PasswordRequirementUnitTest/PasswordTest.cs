@@ -23,7 +23,7 @@ public class PasswordTest
     [Test]
     public void Invalid_Test()
     {
-        var verificator = new DefaultPasswordVeficator();
+        var verificator = new DefaultPasswordVerifierService();
         var result = verificator.Verify("error");
         result.Should().Contain(ErrorList.CombinationLetterAndNumber);
         result.Should().Contain(ErrorList.CombinationLowerAndUpper);
@@ -34,7 +34,7 @@ public class PasswordTest
     [Test]
     public void ValidCombinationLetterAndNumber_Test()
     {
-        var verificator = new DefaultPasswordVeficator();
+        var verificator = new DefaultPasswordVerifierService();
         var result = verificator.Verify("error1");
         result.Should().Contain(ErrorList.CombinationLowerAndUpper);
         result.Should().Contain(ErrorList.PasswordLength);
@@ -44,7 +44,7 @@ public class PasswordTest
     [Test]
     public void ValidCombinationLowerAndUpper_Test()
     {
-        var verificator = new DefaultPasswordVeficator();
+        var verificator = new DefaultPasswordVerifierService();
         var result = verificator.Verify("errorE");
         result.Should().Contain(ErrorList.CombinationLetterAndNumber);
         result.Should().Contain(ErrorList.PasswordLength);
@@ -54,7 +54,7 @@ public class PasswordTest
     [Test]
     public void ValidLength_Test()
     {
-        var verificator = new DefaultPasswordVeficator();
+        var verificator = new DefaultPasswordVerifierService();
         var result = verificator.Verify("abcdefgh");
         result.Should().Contain(ErrorList.CombinationLetterAndNumber);
         result.Should().Contain(ErrorList.CombinationLowerAndUpper);
@@ -64,7 +64,7 @@ public class PasswordTest
     [Test]
     public void ValidSpecialCharacter_Test()
     {
-        var verificator = new DefaultPasswordVeficator();
+        var verificator = new DefaultPasswordVerifierService();
         var result = verificator.Verify("@bcd");
         result.Should().Contain(ErrorList.CombinationLetterAndNumber);
         result.Should().Contain(ErrorList.CombinationLowerAndUpper);
@@ -74,7 +74,7 @@ public class PasswordTest
     [Test]
     public void Valid_Test()
     {
-        var verificator = new DefaultPasswordVeficator();
+        var verificator = new DefaultPasswordVerifierService();
         var result = verificator.Verify("MyPassword@123");
         result.Should().HaveCount(0);
     }

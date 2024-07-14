@@ -4,18 +4,18 @@ using PasswordRequirement.Verificators;
 
 namespace PasswordRequirement;
 
-public class DefaultPasswordVeficator : IPasswordVerificator
+public class DefaultPasswordVerifierService : IPasswordVerifierService
 {
     public List<string> Verify(string password)
     {
-        var verificators = new List<Verificator>();
+        var verificators = new List<PasswordVerifier>();
         var assembly = this.GetType().Assembly;
         foreach (var type in assembly.ExportedTypes)
         {
-            if (type.Name == nameof(Verificator) || type.BaseType == null  || type.BaseType != typeof(Verificator)) continue;
+            if (type.Name == nameof(PasswordVerifier) || type.BaseType == null  || type.BaseType != typeof(PasswordVerifier)) continue;
             if (type == typeof(VerifiedPattern)) continue;
                 
-            var instance = (Activator.CreateInstance(type) as Verificator)!;
+            var instance = (Activator.CreateInstance(type) as PasswordVerifier)!;
             verificators.Add(instance);
         }
 

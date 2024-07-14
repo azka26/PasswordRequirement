@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace PasswordRequirement;
 
-public abstract class Verificator
+public abstract class PasswordVerifier
 {
     /// <summary>
     /// If Success Return Value Should Be Null or String.Empty

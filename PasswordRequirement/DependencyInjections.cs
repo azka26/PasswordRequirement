@@ -5,9 +5,9 @@ namespace PasswordRequirement;
 
 public static class DependencyInjections
 {
-    public static void AddPasswordRequirement<T>(this IServiceCollection services) where T : class, IPasswordVerificator
+    public static void AddPasswordRequirement<T>(this IServiceCollection services) where T : class, IPasswordVerifierService
     {
-        services.AddTransient<IPasswordVerificator, T>();
+        services.AddTransient<IPasswordVerifierService, T>();
     }
 }
 #endif

@@ -1,6 +1,6 @@
 
 namespace PasswordRequirement.Verificators;
-public class VerifiedPasswordLength : Verificator
+public class VerifiedPasswordLength : PasswordVerifier
 {
     private readonly int _minLength = 8;
     public VerifiedPasswordLength()

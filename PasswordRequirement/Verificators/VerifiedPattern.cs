@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace PasswordRequirement.Verificators;
     
-public class VerifiedPattern : Verificator
+public class VerifiedPattern : PasswordVerifier
 {
     public VerifiedPattern()
     {

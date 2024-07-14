@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace PasswordRequirement.Verificators;
 
-public class VerifiedSpecialCharacterPattern : Verificator
+public class VerifiedSpecialCharacterPattern : PasswordVerifier
 {
     public VerifiedSpecialCharacterPattern()
     {

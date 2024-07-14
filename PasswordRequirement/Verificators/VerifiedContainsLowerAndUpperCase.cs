@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
 
 namespace PasswordRequirement.Verificators;
-public class VerifiedContainsLowerAndUpperCase : Verificator
+public class VerifiedContainsLowerAndUpperCase : PasswordVerifier
 {
     public override string? Verified(string password, params object[] parameters)
     {
